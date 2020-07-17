@@ -50,12 +50,12 @@ function fetchMessages(){
     }
 
     httpRequest.onreadystatechange  = ()=>{
-      
+
       if(httpRequest.readyState === XMLHttpRequest.DONE){
 
         if(httpRequest.status === 200){
-
-          document.getElementById('chatDisplay').innerHTML  = httpRequest.responseText;
+          
+          document.getElementById('chatDisplay').innerHTML  = httpRequest.response;
 
         }else{
           alert("couldn't refresh chat!");
@@ -66,6 +66,5 @@ function fetchMessages(){
     let url = "/fetch";
     console.log(url);
     httpRequest.open('GET', url);
-    httpRequest.setHe
     httpRequest.send();
 }

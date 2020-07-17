@@ -48,15 +48,15 @@ app.get("/:user/:message", function(req, res){
 //fetchMessage
 app.get("/fetch", function(req, res){
   var messages = mongoose.model("ChatMessage", ChatMessageSchema);
-  var chat = "";
+  chat = "";
   messages.find({}).exec(function(err, result){
     for (i in result){
-      console.log( result[i].alias + ": "+result[i].message+"\n");
-      chat+= result[i].alias + ": "+result[i].message+"\n";
+      chat+= "<p>"+result[i].alias + ": "+result[i].message+"</p>";
     }
+    res.send(chat);
   });
-  res.send(chat);
-  console.log(chat);
+
+  console.log("I am printing:\n"+chat);
 
 });
 app.listen(port, function(){
