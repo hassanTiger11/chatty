@@ -1,0 +1,26 @@
+body{
+  background-color: rgb(42, 209, 209);
+  font-size: 30px;
+  font-family: sans-serif;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  color: yellow;
+}
+#chatDisplay{
+  border: 1px solid black;
+  position: fixed;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  height: 60%;
+  overflow-y: scroll;
+
+}
+#messageDisplay{
+  background-color: rgb(42, 106, 209);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 30%;
+  width: 100%;
+}
