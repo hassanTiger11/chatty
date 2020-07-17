@@ -7,12 +7,15 @@ I am going to use the mongoose module to access information from the DB and post
 */
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 80;
 
 const mongoose = require("mongoose");
 var mongoDB = 'mongodb://127.0.0.1/chat';
 console.log("mongo: creating DB...");
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect('mongodb://127.0.0.1:27017/testaroo',{
+    useMongoClient: true,
+});
+
 console.log("mongo: DB created");
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -56,7 +59,7 @@ app.get("/fetch", function(req, res){
     res.send(chat);
   });
 
-  console.log("I am printing:\n"+chat);
+  
 
 });
 app.listen(port, function(){
