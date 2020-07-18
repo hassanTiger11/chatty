@@ -12,10 +12,7 @@ const port = 80;
 const mongoose = require("mongoose");
 var mongoDB = 'mongodb://127.0.0.1/chat';
 console.log("mongo: creating DB...");
-mongoose.connect('mongodb://127.0.0.1:27017/testaroo',{
-    useMongoClient: true,
-});
-
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 console.log("mongo: DB created");
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -38,7 +35,7 @@ app.get("/:user/:message", function(req, res){
   var text = req.params.message;
   var date = new Date();
   var currTime = date.getTime();
-  console.log("message request: collected params");
+  
   var message = new ChatMessage({
     time: currTime,
     alias: userName,
@@ -58,9 +55,8 @@ app.get("/fetch", function(req, res){
     }
     res.send(chat);
   });
+
   console.log("Updating Chat");
-
-
 
 });
 app.listen(port, function(){
