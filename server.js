@@ -58,8 +58,9 @@ app.get("/fetch", function(req, res){
     }
     res.send(chat);
   });
+  console.log("Updating Chat");
 
-  
+
 
 });
 app.listen(port, function(){
